@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounting - Calm Consultancy</title>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-light: #f5f9ff;
+      --bg-dark: #121212;
+      --text-dark: #1a1a1a;
+      --text-light: #f5f5f5;
+      --accent: #4da6ff;
+    }
+
+     html, body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f5ffff;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #1f2d2d;
+      color: #f0f0f0;
+    }
+
+    .navbar {
+      background: #cdefff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #256a6a;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #e0f7ff, #ffffff);
+    }
+
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .service-section {
+      padding: 4rem 2rem;
+      background-color: #fdfdfd;
+    }
+
+    body.dark-mode .service-section {
+      background-color: #1e1e1e;
+    }
+
+body.dark-mode .card {
+      background: #2b2b2b;
+    }
+
+ .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+
+
+    .mode-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #256a6a;
+    }
+
+    .services-section {
+      padding: 3rem 1rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-left: 2rem;
+     margin-right: 2rem;
+    }
+
+    .service-card {
+      background: #e3fdfd;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      background-color: #256a6a;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 3rem;
+    }
+
+    .service-card button:hover {
+      background-color: #1d4f4f;
+    }
+
+    .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .card ul {
+      padding-left: 1.2rem;
+    }
+    .card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+</head>
+<body class="light-mode">
+  <header>
+    <nav class="navbar">
+      <div class="logo">S.K. Consultancy</div>
+      <div class="navbar-toggle" onclick="toggleMenu()"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li>    <button onclick="toggleDarkMode()" style="padding: 0.5rem 1rem; background: #1a237e; color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+      🌙
+    </button></li>
+      </ul>
+    </nav>
+  </header>
+
+
+<main>
+<section id="accounting-section" class="light-mode" style="font-family: 'Segoe UI', sans-serif; padding: 3rem 1rem; transition: background 0.3s, color 0.3s;">
+  <!-- 🌙 Toggle Button -->
+  <div style="text-align: right; max-width: 1200px; margin: 0 auto 1rem;">
+  </div>
+
+  <!-- Title & Intro -->
+  <h2 style="text-align: center; font-size: 2.2rem;">💼 Accounting & Bookkeeping Services</h2>
+  <p style="text-align: center; max-width: 800px; margin: 0.5rem auto 2rem; font-size: 1.1rem;">
+    Your trusted financial partner — from daily bookkeeping to strategic accounting insights. Tailored for freelancers, traders, startups & enterprises.
+  </p>
+
+  <!-- Informational Block -->
+  <div class="info-box" style="max-width: 960px; margin: 2rem auto; border-left: 5px solid #1a237e; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1); padding: 2rem; background: #ffffff;">
+    <h3>📘 What is Bookkeeping & Accounting?</h3>
+    <p>Bookkeeping records your daily transactions. Accounting interprets this data to help you make financial decisions, manage compliance, and grow your business.</p>
+    <h3>📊 Why Do You Need It?</h3>
+    <ul>
+      <li>✅ Understand your profit/loss clearly</li>
+      <li>✅ Ensure GST & Tax compliance</li>
+      <li>✅ Make smarter financial decisions</li>
+      <li>✅ Smooth loan & audit processing</li>
+      <li>✅ Detect financial leaks early</li>
+    </ul>
+    <h3>🔧 What We Offer:</h3>
+    <ul>
+      <li>📄 Day-to-day bookkeeping (manual or software-based)</li>
+      <li>📌 P&L, Balance Sheet, Trial Balance</li>
+      <li>🔁 Bank Reconciliation Statement (BRS)</li>
+      <li>💰 Receivable/Payable tracking</li>
+      <li>📦 Inventory valuation & stock register</li>
+      <li>📈 Monthly/Quarterly MIS Reports</li>
+      <li>🧑‍💼 Optional CFO Review</li>
+    </ul>
+  </div>
+
+  <!-- Pricing Cards -->
+  <div class="pricing-wrapper" style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; max-width: 1200px; margin: auto;">
+    <div class="price-card basic">
+      <h3>🔹 Basic</h3>
+      <p>Best for Freelancers & Shops</p>
+      <ul>
+        <li>✔️ Daily Transactions</li>
+        <li>✔️ BRS & P&L</li>
+        <li>✔️ Balance Sheet (Quarterly)</li>
+      </ul>
+      <h4>₹2,499 / month</h4>
+    </div>
+
+    <div class="price-card standard">
+      <h3>🔸 Standard</h3>
+      <p>For Traders & SMEs</p>
+      <ul>
+        <li>✔️ Bookkeeping & AR/AP</li>
+        <li>✔️ Monthly BRS</li>
+        <li>✔️ MIS Reports</li>
+      </ul>
+      <h4>₹4,999 / month</h4>
+    </div>
+
+    <div class="price-card premium">
+      <h3>⭐ Premium</h3>
+      <p>For Companies & Chains</p>
+      <ul>
+        <li>✔️ All standard features</li>
+        <li>✔️ Inventory & CFO review</li>
+        <li>✔️ Full monthly reporting</li>
+      </ul>
+      <h4>₹8,999 / month</h4>
+    </div>
+
+    <div class="price-card custom">
+      <h3>🛠️ Custom</h3>
+      <p>For Large Enterprises</p>
+      <ul>
+        <li>✔️ Custom Deliverables</li>
+        <li>✔️ ERP Integration</li>
+        <li>✔️ Staff Support</li>
+      </ul>
+      <h4>On Request</h4>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="Owner Profile Page.html" style="padding: 0.8rem 1.5rem; background: #1a237e; color: #fff; border-radius: 8px; text-decoration: none; font-weight: bold;">
+      📩 Request Custom Quote
+    </a>
+  </div>
+  </div>
+</section>
+
+<!-- 💡 Styles -->
+<style>
+  .price-card {
+    flex: 1 1 250px;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background: #fff;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .price-card h3 { color: #1a237e; }
+  .standard { background: #e8f0ff; }
+  .premium { background: #fff3e0; }
+  .custom { background: #e8f5e9; }
+
+  .form-box input,
+  .form-box textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .form-box button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: #1a237e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* 🌙 Dark Mode Styles */
+  .dark-mode {
+    background: #121212;
+    color: #f0f0f0;
+  }
+
+  .dark-mode .info-box,
+  .dark-mode .form-box,
+  .dark-mode .price-card {
+    background: #1e1e1e !important;
+    color: #eee;
+    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  }
+
+  .dark-mode .form-box input,
+  .dark-mode .form-box textarea {
+    background: #2b2b2b;
+    color: #fff;
+    border: 1px solid #555;
+  }
+</style>
+
+<!-- 🔀 Toggle Script -->
+<script>
+  function toggleDarkMode() {
+    const section = document.getElementById("accounting-section");
+    section.classList.toggle("dark-mode");
+    section.classList.toggle("light-mode");
+  }
+
+  // Optional: save mode in localStorage
+</script>
+ </main>
+<br>
+<br>
+ <p style="text-align:center; margin-top: 2rem;">
+    <strong>Looking for something specific?</strong><br>
+    <a href="contact.html" style="color:#1e3a8a;">Contact us</a> for customized CA solutions for you or your business.
+  </p>
+<br>
+
+<br>
+<br>
+<div>
+ <footer>
+    <p>
+      <a href="#">Disclaimer</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms</a> <br>
+      &copy; 2025 Calm Consultancy. All rights reserved.
+    </p>
+
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+
+</body>
+</html>

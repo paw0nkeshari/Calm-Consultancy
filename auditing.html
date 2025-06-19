@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit & Assurance - Calm Consultancy</title>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-light: #f5f9ff;
+      --bg-dark: #121212;
+      --text-dark: #1a1a1a;
+      --text-light: #f5f5f5;
+      --accent: #4da6ff;
+    }
+
+     html, body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f5ffff;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #1f2d2d;
+      color: #f0f0f0;
+    }
+
+    .navbar {
+      background: #cdefff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #256a6a;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #e0f7ff, #ffffff);
+    }
+
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .service-section {
+      padding: 4rem 2rem;
+      background-color: #fdfdfd;
+    }
+
+    body.dark-mode .service-section {
+      background-color: #1e1e1e;
+    }
+
+body.dark-mode .card {
+      background: #2b2b2b;
+    }
+
+ .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+
+
+    .mode-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #256a6a;
+    }
+
+    .services-section {
+      padding: 3rem 1rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-left: 2rem;
+     margin-right: 2rem;
+    }
+
+    .service-card {
+      background: #e3fdfd;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      background-color: #256a6a;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 3rem;
+    }
+
+    .service-card button:hover {
+      background-color: #1d4f4f;
+    }
+
+    .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .card ul {
+      padding-left: 1.2rem;
+    }
+    .card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+</head>
+<body class="light-mode">
+  <header>
+    <nav class="navbar">
+      <div class="logo">S.K. Consultancy</div>
+      <div class="navbar-toggle" onclick="toggleMenu()"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><button id="toggle-dark-mode">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+
+ <main>
+<!-- Dark Mode Toggle -->
+
+
+<!-- Audit & Assurance Section -->
+<section id="audit-section" style="padding: 3rem 1rem;">
+  <div style="max-width: 1200px; margin: auto; text-align: center;">
+    <h2 style="font-size: 2.4rem; margin-bottom: 1rem;">🔍 Auditing & Assurance Services</h2>
+    <p style="font-size: 1.1rem; max-width: 800px; margin: auto;">
+      Strengthen your business with accurate auditing, internal controls, and compliance checks. Click on any card below to learn more about our services.
+    </p>
+  </div>
+
+  <!-- Cards Grid -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 3rem auto;">
+    <!-- Individual Cards -->
+    <div class="audit-card" data-info="Mandatory under Companies Act. We ensure your financials comply with legal standards with certified audit reports.">
+      <h3>📘 Statutory Audit</h3>
+      <p>Audit as per Companies Act</p>
+    </div>
+    <div class="audit-card" data-info="For businesses crossing turnover thresholds. We assist in preparing and submitting required tax audit reports.">
+      <h3>📄 Tax Audit (Sec 44AB)</h3>
+      <p>Turnover-based tax compliance</p>
+    </div>
+    <div class="audit-card" data-info="Strengthen internal controls, prevent errors/fraud, and increase operational efficiency through expert audit practices.">
+      <h3>🔎 Internal Audit</h3>
+      <p>Improve internal control</p>
+    </div>
+    <div class="audit-card" data-info="We help you stay compliant with GST law by checking return accuracy and reconciliations.">
+      <h3>🧾 GST Audit</h3>
+      <p>GST compliance and analysis</p>
+    </div>
+    <div class="audit-card" data-info="For banks and NBFCs. Real-time auditing of financial operations to ensure transparency and compliance.">
+      <h3>🏦 Concurrent Audit</h3>
+      <p>Live audit for financial entities</p>
+    </div>
+    <div class="audit-card" data-info="Fraud detection, forensic analysis, and financial investigation for whistleblowing or litigation support.">
+      <h3>🕵️ Forensic Audit</h3>
+      <p>Detect fraud and anomalies</p>
+    </div>
+    <div class="audit-card" data-info="Independent inventory verification for internal record accuracy or loan requirements.">
+      <h3>📦 Stock Audit</h3>
+      <p>Inventory health checks</p>
+    </div>
+    <div class="audit-card" data-info="Audit your internal systems for efficiency, process quality, and risk reduction.">
+      <h3>⚙️ Process Audit</h3>
+      <p>Improve system effectiveness</p>
+    </div>
+    <div class="audit-card" data-info="We evaluate the financial, legal, and operational risks before merger, acquisition, or investment deals.">
+      <h3>🤝 Due Diligence</h3>
+      <p>Pre-investment audit</p>
+    </div>
+  </div>
+
+  <!-- Pricing Table -->
+  <div style="max-width: 900px; margin: 3rem auto;">
+    <h3 style="text-align:center; font-size:1.8rem; margin-bottom: 1rem;">💰 Audit Service Pricing</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead style="background-color: var(--thead-bg); color: var(--thead-text);">
+        <tr>
+          <th style="padding: 12px; border: 1px solid var(--border);">Service</th>
+          <th style="padding: 12px; border: 1px solid var(--border);">Starts From</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 12px; border: 1px solid var(--border);">Statutory Audit</td>
+          <td style="padding: 12px; border: 1px solid var(--border);">₹25,000</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid var(--border);">Tax Audit</td>
+          <td style="padding: 12px; border: 1px solid var(--border);">₹15,000</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid var(--border);">GST Audit</td>
+          <td style="padding: 12px; border: 1px solid var(--border);">₹12,000</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid var(--border);">Due Diligence</td>
+          <td style="padding: 12px; border: 1px solid var(--border);">₹40,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="Owner Profile Page.html" class="cta-btn">📩 Request Free Consultation</a>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  :root {
+    --bg: #f9f9f9;
+    --text: #111;
+    --box-bg: #fff;
+    --btn-bg: #1a237e;
+    --btn-text: #fff;
+    --thead-bg: #e0e0e0;
+    --thead-text: #000;
+    --border: #ccc;
+  }
+
+  .dark-mode {
+    --bg: #121212;
+    --text: #eaeaea;
+    --box-bg: #1e1e1e;
+    --btn-bg: #7986cb;
+    --btn-text: #ffffff;
+    --thead-bg: #2c2c2c;
+    --thead-text: #ffffff;
+    --border: #444;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .audit-card {
+    background: var(--box-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid var(--btn-bg);
+  }
+
+  .audit-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .audit-card.expanded::after {
+    content: attr(data-info);
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: rgba(0,0,0,0.03);
+    padding: 0.75rem;
+    border-radius: 6px;
+    animation: fadeInZoom 0.4s ease-in-out;
+  }
+
+  @keyframes fadeInZoom {
+    0% {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .cta-btn {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    text-decoration: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background 0.3s ease;
+  }
+
+  .cta-btn:hover {
+    opacity: 0.9;
+  }
+
+  #toggle-dark-mode {
+    top: 15px;
+    right: 20px;
+    z-index: 9999;
+    padding: 10px 16px;
+    background: #cdefff;
+   
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+
+<!-- JS -->
+<script>
+  const toggleButton = document.getElementById('toggle-dark-mode');
+  const root = document.documentElement;
+
+  const savedMode = localStorage.getItem('theme');
+  if (savedMode === 'dark') {
+    root.classList.add('dark-mode');
+    toggleButton.textContent = '🌙';
+  }
+
+  toggleButton.addEventListener('click', () => {
+    root.classList.toggle('dark-mode');
+    const isDark = root.classList.contains('dark-mode');
+    toggleButton.textContent = isDark ? '🌙' : '🌙 ';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Accordion behavior
+  const cards = document.querySelectorAll('.audit-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('expanded'));
+      card.classList.add('expanded');
+    });
+  });
+</script>
+ </main>
+<br>
+<br>
+ <p style="text-align:center; margin-top: 2rem;">
+    <strong>Looking for something specific?</strong><br>
+    <a href="contact.html" style="color:#1e3a8a;">Contact us</a> for customized CA solutions for you or your business.
+  </p>
+<br>
+
+<br>
+<br>
+<div>
+ <footer>
+    <p>
+      <a href="#">Disclaimer</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms</a> <br>
+      &copy; 2025 Calm Consultancy. All rights reserved.
+    </p>
+
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+
+</body>
+</html>

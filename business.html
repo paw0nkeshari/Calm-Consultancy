@@ -1,0 +1,388 @@
+<!-- services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startup - Calm Consultancy</title>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-light: #f5f9ff;
+      --bg-dark: #121212;
+      --text-dark: #1a1a1a;
+      --text-light: #f5f5f5;
+      --accent: #4da6ff;
+    }
+
+     html, body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f5ffff;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #1f2d2d;
+      color: #f0f0f0;
+    }
+
+    .navbar {
+      background: #cdefff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #256a6a;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #e0f7ff, #ffffff);
+    }
+
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .service-section {
+      padding: 4rem 2rem;
+      background-color: #fdfdfd;
+    }
+
+    body.dark-mode .service-section {
+      background-color: #1e1e1e;
+    }
+
+body.dark-mode .card {
+      background: #2b2b2b;
+    }
+
+ .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+
+
+    .mode-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #256a6a;
+    }
+
+    .services-section {
+      padding: 3rem 1rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-left: 2rem;
+     margin-right: 2rem;
+    }
+
+    .service-card {
+      background: #e3fdfd;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      background-color: #256a6a;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 3rem;
+    }
+
+    .service-card button:hover {
+      background-color: #1d4f4f;
+    }
+
+    .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .card ul {
+      padding-left: 1.2rem;
+    }
+    .card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+</head>
+<body class="light-mode">
+  <header>
+    <nav class="navbar">
+      <div class="logo">S.K. Consultancy</div>
+      <div class="navbar-toggle" onclick="toggleMenu()"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li>    <button onclick="toggleDarkMode()" style="padding: 0.5rem 1rem; background: #1a237e; color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+      🌙
+    </button></li>
+      </ul>
+    </nav>
+  </header>
+
+
+<main>
+
+<!-- 🎯 Business & Startup Advisory Section -->
+<section id="advisory" style="padding:3rem 1rem; font-family:'Segoe UI', sans-serif;">
+  <style>
+    :root {
+      --bg:#fff; --text:#222; --box-bg:#f7f7f7; --btn-bg:#007bff; --thead-bg:#f0f0f0; --thead-text:#000; --border:#ccc;
+    }
+    .dark-mode {
+      --bg:#121212; --text:#f0f0f0; --box-bg:#1e1e1e; --btn-bg:#0d6efd; --thead-bg:#1c1c1c; --thead-text:#eee; --border:#444;
+    }
+    body { background:var(--bg); color:var(--text); margin:0; }
+    h2,h3 { color:var(--text); }
+    .cta-btn {
+      background:var(--btn-bg); color:#fff; padding:0.75rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:bold;
+      display:inline-block; margin-top:1.5rem;
+    }
+    .service-grid {
+      display:grid; grid-template-columns:1fr; gap:2rem; max-width:1200px; margin:2rem auto;
+    }
+    @media(min-width:700px){
+      .service-grid { grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+    }
+    .card {
+      background:var(--box-bg); border-left:5px solid var(--btn-bg); padding:1.5rem; border-radius:10px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05); cursor:pointer; position:relative; transition:transform 0.3s;
+    }
+    .card:hover { transform:scale(1.03); }
+    .card.expanded::after {
+      content:attr(data-info); display:block; margin-top:1rem; font-size:0.95rem;
+      background:rgba(0,0,0,0.03); padding:0.75rem; border-radius:6px;
+      animation:fadeInZoom .4s ease-in-out;
+    }
+    @keyframes fadeInZoom {
+      from { opacity:0; transform:scale(0.95); }
+      to { opacity:1; transform:scale(1); }
+    }
+    table {
+      width:100%; max-width:900px; margin:2rem auto; border-collapse:collapse;
+      background:var(--box-bg); color:var(--text);
+    }
+    th, td { padding:12px; border:1px solid var(--border); text-align:left; }
+    thead { background:var(--thead-bg); color:var(--thead-text); }
+  </style>
+
+  <h2 style="text-align:center;">🚀 Business & Startup Advisory</h2>
+  <p style="max-width:800px;margin:auto;text-align:center;">Model creation, project reports, pitch decks and funding support.</p>
+
+  <div class="service-grid">
+    <div class="card" data-info="Develop business model and decide legal structure (Proprietorship, LLP, Pvt Ltd, etc).">
+      <h3>🧩 Business Model Setup</h3>
+      <p>Entity Structure Planning</p>
+    </div>
+    <div class="card" data-info="Project report creation for loans and grants with revenue, cost, and funding projections.">
+      <h3>📊 Project Reports</h3>
+      <p>For Bank & NBFC Funding</p>
+    </div>
+    <div class="card" data-info="Professional pitch decks with financial projections for startups seeking angel/VC funding.">
+      <h3>🎯 Investor Pitch Deck</h3>
+      <p>Deck + Financials</p>
+    </div>
+    <div class="card" data-info="We help you register with Startup India and get DPIIT Recognition for benefits like tax exemptions.">
+      <h3>🏢 DPIIT Registration</h3>
+      <p>Startup India Support</p>
+    </div>
+    <div class="card" data-info="Guidance on connecting with investors, VCs, government schemes, and accelerator programs.">
+      <h3>💰 Funding Support</h3>
+      <p>Angel & VC Network</p>
+    </div>
+    <div class="card" data-info="We do feasibility study, break-even analysis, market research to validate your idea.">
+      <h3>📈 Feasibility Study</h3>
+      <p>Viability & Forecasts</p>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Starting Price</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Business Model Setup</td><td>₹1,999</td></tr>
+      <tr><td>Project Report</td><td>₹4,999</td></tr>
+      <tr><td>Investor Pitch Deck</td><td>₹3,999</td></tr>
+      <tr><td>DPIIT Registration</td><td>₹2,499</td></tr>
+      <tr><td>Funding Guidance</td><td>Custom Quote</td></tr>
+    </tbody>
+  </table>
+
+  <div style="text-align:center;">
+    <a class="cta-btn" href="#contact-form">📩 Get Advisory Help</a>
+  </div>
+</section>
+
+<script>
+  // Dark Mode Toggle Logic
+  const toggleBtn = document.getElementById('darkModeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-mode');
+    toggleBtn.textContent = document.documentElement.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('darkMode', document.documentElement.classList.contains('dark-mode'));
+  });
+  // Auto-enable dark mode if remembered
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('darkMode') === 'true') toggleBtn.click();
+  });
+
+  // Expand cards on click
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('expanded'));
+        card.classList.add('expanded');
+      });
+    });
+  });
+</script>
+</main>
+<br>
+<br>
+ <p style="text-align:center; margin-top: 2rem;">
+    <strong>Looking for something specific?</strong><br>
+    <a href="contact.html" style="color:#1e3a8a;">Contact us</a> for customized CA solutions for you or your business.
+  </p>
+<br>
+
+<br>
+<br>
+<div>
+ <footer>
+    <p>
+      <a href="#">Disclaimer</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms</a> <br>
+      &copy; 2025 Calm Consultancy. All rights reserved.
+    </p>
+
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+
+</body>
+</html>
+

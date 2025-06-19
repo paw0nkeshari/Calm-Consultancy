@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Other Tax - Calm Consultancy</title>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-light: #f5f9ff;
+      --bg-dark: #121212;
+      --text-dark: #1a1a1a;
+      --text-light: #f5f5f5;
+      --accent: #4da6ff;
+    }
+
+     html, body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f5ffff;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #1f2d2d;
+      color: #f0f0f0;
+    }
+
+    .navbar {
+      background: #cdefff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #256a6a;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #e0f7ff, #ffffff);
+    }
+
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .service-section {
+      padding: 4rem 2rem;
+      background-color: #fdfdfd;
+    }
+
+    body.dark-mode .service-section {
+      background-color: #1e1e1e;
+    }
+
+body.dark-mode .card {
+      background: #2b2b2b;
+    }
+
+ .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+
+
+    .mode-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #256a6a;
+    }
+
+    .services-section {
+      padding: 3rem 1rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-left: 2rem;
+     margin-right: 2rem;
+    }
+
+    .service-card {
+      background: #e3fdfd;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      background-color: #256a6a;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 3rem;
+    }
+
+    .service-card button:hover {
+      background-color: #1d4f4f;
+    }
+
+    .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .card ul {
+      padding-left: 1.2rem;
+    }
+    .card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+</head>
+<body class="light-mode">
+  <header>
+    <nav class="navbar">
+      <div class="logo">S.K. Consultancy</div>
+      <div class="navbar-toggle" onclick="toggleMenu()"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><button onclick="toggleDarkMode()" class="mode-toggle">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+
+ <main>
+
+<!-- 🏛️ Other Tax Services Section -->
+<section id="other-tax-services" style="padding:3rem 1rem; font-family:'Segoe UI', sans-serif;">
+  <style>
+    :root {
+      --bg:#fff; --text:#222; --box-bg:#f9f9f9; --btn-bg:#6c5ce7; --thead-bg:#f0f0f0; --thead-text:#000; --border:#ccc;
+    }
+    .dark-mode {
+      --bg:#121212; --text:#f0f0f0; --box-bg:#1f1f1f; --btn-bg:#a29bfe; --thead-bg:#1c1c1c; --thead-text:#eee; --border:#444;
+    }
+    body { background:var(--bg); color:var(--text); margin:0; transition:all 0.3s; }
+    h2,h3 { color:var(--text); }
+    .cta-btn {
+      background:var(--btn-bg); color:#fff; padding:0.8rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600;
+      display:inline-block; margin-top:2rem;
+    }
+    .tax-list { max-width:900px; margin:auto; margin-top:2rem; }
+    .tax-card {
+      background:var(--box-bg); border:1px solid var(--border); border-left:5px solid var(--btn-bg);
+      padding:1.2rem; border-radius:10px; margin-bottom:1rem;
+      cursor:pointer; transition:all 0.3s ease;
+    }
+    .tax-card:hover { box-shadow:0 0 12px rgba(0,0,0,0.1); transform:scale(1.01); }
+    .tax-card.expanded::after {
+      content:attr(data-details); display:block; margin-top:1rem; font-size:0.95rem; color:var(--text);
+      background:rgba(0,0,0,0.03); padding:0.8rem; border-radius:6px; animation:fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn { from { opacity:0; transform:scale(0.96); } to { opacity:1; transform:scale(1); } }
+    table {
+      width:100%; max-width:900px; margin:3rem auto; border-collapse:collapse;
+      background:var(--box-bg); color:var(--text); border:1px solid var(--border);
+    }
+    th, td { padding:12px; border:1px solid var(--border); text-align:left; }
+    thead { background:var(--thead-bg); color:var(--thead-text); }
+  </style>
+
+  <h2 style="text-align:center;">🏛️ Other Tax Services</h2>
+  <p style="max-width:800px;margin:auto;text-align:center;">Legacy and specialized tax services including Professional Tax, Equalization Levy, and more.</p>
+
+  <div class="tax-list">
+    <div class="tax-card" data-details="State-wise registration and monthly/annual return filing under Professional Tax.">
+      <h3>👥 Professional Tax (PT)</h3>
+      <p>Registration & Returns</p>
+    </div>
+    <div class="tax-card" data-details="Advisory and compliance for 6% Equalization Levy on specified digital services.">
+      <h3>🌐 Equalization Levy</h3>
+      <p>Digital Transactions</p>
+    </div>
+    <div class="tax-card" data-details="Support for older taxation acts and legacy return finalizations (e.g., VAT/CST if applicable).">
+      <h3>📚 Legacy Tax Support</h3>
+      <p>VAT / CST / Excise</p>
+    </div>
+    <div class="tax-card" data-details="Filing professional tax, challan generation, and compliance status tracking.">
+      <h3>💳 PT Challan Filing</h3>
+      <p>Monthly/Annual</p>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Professional Tax Registration</td><td>₹999</td></tr>
+      <tr><td>PT Return Filing (per year)</td><td>₹699</td></tr>
+      <tr><td>Equalization Levy Filing</td><td>₹1,499</td></tr>
+      <tr><td>Legacy Tax Return Support</td><td>₹1,999</td></tr>
+    </tbody>
+  </table>
+
+  <div style="text-align:center;">
+    <a href="#contact-form" class="cta-btn">📮 Ask About Other Taxes</a>
+  </div>
+</section>
+
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-mode');
+    toggleBtn.textContent = document.documentElement.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('darkMode', document.documentElement.classList.contains('dark-mode'));
+  });
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('darkMode') === 'true') toggleBtn.click();
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.tax-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('expanded'));
+        card.classList.add('expanded');
+      });
+    });
+  });
+</script> </main>
+<br>
+<br>
+ <p style="text-align:center; margin-top: 2rem;">
+    <strong>Looking for something specific?</strong><br>
+    <a href="contact.html" style="color:#1e3a8a;">Contact us</a> for customized CA solutions for you or your business.
+  </p>
+<br>
+
+<br>
+<br>
+<div>
+ <footer>
+    <p>
+      <a href="#">Disclaimer</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms</a> <br>
+      &copy; 2025 Calm Consultancy. All rights reserved.
+    </p>
+
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+
+</body>
+</html>

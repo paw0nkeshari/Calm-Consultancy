@@ -1,0 +1,485 @@
+<!-- services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Calm Consultancy</title>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-light: #f5f9ff;
+      --bg-dark: #121212;
+      --text-dark: #1a1a1a;
+      --text-light: #f5f5f5;
+      --accent: #4da6ff;
+    }
+
+     html, body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f5ffff;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #1f2d2d;
+      color: #f0f0f0;
+    }
+
+    .navbar {
+      background: #cdefff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #256a6a;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #e0f7ff, #ffffff);
+    }
+
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .service-section {
+      padding: 4rem 2rem;
+      background-color: #fdfdfd;
+    }
+
+    body.dark-mode .service-section {
+      background-color: #1e1e1e;
+    }
+
+body.dark-mode .card {
+      background: #2b2b2b;
+    }
+
+ .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+
+
+    .mode-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #256a6a;
+    }
+
+    .services-section {
+      padding: 3rem 1rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-left: 2rem;
+     margin-right: 2rem;
+    }
+
+    .service-card {
+      background: #e3fdfd;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      background-color: #256a6a;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 3rem;
+    }
+
+    .service-card button:hover {
+      background-color: #1d4f4f;
+    }
+
+    .dark-mode .service-card {
+      background: #2a4b4b;
+      color: #f0f0f0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .card ul {
+      padding-left: 1.2rem;
+    }
+    .card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .dark-mode .service-card button {
+      background-color: #51c0c0;
+      color: #1f2d2d;
+    }
+
+    footer {
+      background: #cdefff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #256a6a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+</head>
+<body class="light-mode">
+  <header>
+    <nav class="navbar">
+      <div class="logo">S.K. Consultancy</div>
+      <div class="navbar-toggle" onclick="toggleMenu()"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><button onclick="toggleDarkMode()" class="mode-toggle">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+
+ <main>
+    <section class="hero" data-aos="fade-down">
+      <h1>Our Services</h1>
+      <p>Explore the areas where we help businesses grow, stabilize, and succeed.</p>
+    </section>
+
+    <div class="services-grid">
+      <div class="service-card" data-aos="zoom-in">
+       <h3>📘 Accounting & Bookkeeping</h3>
+      <ul>
+        <li>Financial Records Maintenance</li>
+        <li>Balance Sheet & P&L Finalization</li>
+        <li>Bank Reconciliation & Accounts</li>
+      </ul>
+        <a href="accounting.html">
+  <button>Click Here</button>
+</a>
+
+
+      </div>
+
+ <div class="service-card" data-aos="zoom-in">
+        <h3>🧾 Income Tax Services</h3>
+      <ul>
+        <li>ITR Filing (All Types)</li>
+        <li>TDS Return Filing</li>
+        <li>Tax Planning & Notice Handling</li>
+      </ul>
+        <a href="Income Tax Services.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+ <div class="service-card" data-aos="zoom-in">
+         <h3>💼 GST Services</h3>
+      <ul>
+        <li>GST Registration & Return Filing</li>
+        <li>GST Audit & Annual Return</li>
+        <li>E-Invoice & E-Way Bill</li>
+      </ul>
+        <a href="GST Services.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+ <div class="service-card" data-aos="zoom-in">
+        <h3>🏛️ Other Tax Services</h3>
+      <ul>
+        <li>PT Challan Filing</li>
+        <li>Legacy Tax Support</li>
+        <li> Equalization Levy</li>
+        <li> Professional Tax (PT)</li>
+      </ul>
+        <a href="Other Tax Services.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+
+
+ <div class="service-card" data-aos="zoom-in">
+       <h3>📋 Salary Slip & Payroll</h3>
+      <ul>
+        <li>Monthly Salary Slip Generation</li>
+        <li>Payroll Processing for Firms</li>
+        <li>Tax Compliant Salary Structuring</li>
+      </ul>
+       <a href="Salary Slip & Payroll Services.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+ <div class="service-card" data-aos="zoom-in">
+         <h3>🪪 PAN, Aadhaar & MSME</h3>
+      <ul>
+        <li>PAN Card Application & Correction</li>
+        <li>Aadhaar Update Support</li>
+        <li>MSME / Udyam Registration</li>
+      </ul>
+        <a href="others.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+ <div class="service-card" data-aos="zoom-in">
+        <h3>📜 Company & LLP Services</h3>
+      <ul>
+        <li>Company/LLP Registration</li>
+        <li>MCA Filings, Director KYC</li>
+        <li>Closure / Strike-Off</li>
+      </ul>
+         <a href="compliance.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+<div class="service-card" data-aos="zoom-in">
+        <h3>🔍 Audit & Assurance</h3>
+      <ul>
+        <li>Statutory & Tax Audit</li>
+        <li>Internal & Stock Audit</li>
+        <li>GST & System Audit</li>
+      </ul>
+        <a href="auditing.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+
+<div class="service-card" data-aos="zoom-in">
+        <h3>🚀 Startup & Business Advisory</h3>
+      <ul>
+        <li>Startup India Registration</li>
+        <li>Pitch Deck & Funding Support</li>
+        <li>Business Setup & Strategy</li>
+      </ul>
+        <a href="business.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+
+<div class="service-card" data-aos="zoom-in">
+        <h3>🏦 Loan & Finance Support</h3>
+      <ul>
+        <li>CMA Report & Project Report</li>
+        <li>Loan & Working Capital Assistance</li>
+        <li>Credit Rating Advisory</li>
+      </ul>
+         <a href="finance.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+
+<div class="service-card" data-aos="zoom-in">
+       <h3>📑 Digital Certificates</h3>
+      <ul>
+        <li>Digital Signature Certificate (DSC)</li>
+        <li>Net Worth & Turnover Certificate</li>
+        <li>15CA / 15CB & Loan Certificate</li>
+      </ul>
+        <a href="certificate.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+
+<div class="service-card" data-aos="zoom-in">
+        <h3>🌍 NRI & International Taxation</h3>
+      <ul>
+        <li>NRI Tax Filing & Repatriation</li>
+        <li>DTAA & FEMA Compliance</li>
+        <li>Foreign Remittance Advisory</li>
+      </ul>
+        <a href="nri.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+<div class="service-card" data-aos="zoom-in">
+        <h3>🤖 Digital Services & Automation</h3>
+      <ul>
+        <li>Tally & Accounting Setup</li>
+        <li>Payroll & Payslip Processing</li>
+        <li>ERP/CRM Integration</li>
+        <li>Cloud Accounting</li>
+        <li>E-Invoicing Setup</li>
+      </ul>
+        <a href="digital.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+<div class="service-card" data-aos="zoom-in">
+        <h3>💰 Valuation Services</h3>
+      <ul>
+        <li>Business Valuation</li>
+        <li>Startup/Share Valuation</li>
+        <li>FEMA/IT/Co Act Reports</li>
+        <li> Intangible Asset Valuation</li>
+      </ul>
+        <a href="valuation.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+<div class="service-card" data-aos="zoom-in">
+        <h3>🧾 Representation & Litigation</h3>
+      <ul>
+        <li>IT Scrutiny Replies</li>
+        <li>GST Representation</li>
+        <li> Appeal Filing</li>
+        <li> Faceless Assessment</li>
+      </ul>
+        <a href="Representation & Litigation.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+
+<div class="service-card" data-aos="zoom-in">
+        <h3>💼 Extra Advisory Services</h3>
+      <ul>
+        <li>Wealth & Estate Planning</li>
+        <li>Succession Planning</li>
+        <li> Cash Flow Forecasting</li>
+        <li> Franchise Model Advisory</li>
+      </ul>
+        <a href="Extra Advisory Services.html">
+  <button>Click Here</button>
+</a>
+      </div>
+
+       
+      </div>
+    </div>
+  </main>
+<br>
+<br>
+ <p style="text-align:center; margin-top: 2rem;">
+    <strong>Looking for something specific?</strong><br>
+    <a href="contact.html" style="color:#1e3a8a;">Contact us</a> for customized CA solutions for you or your business.
+  </p>
+<br>
+
+<br>
+<br>
+<div>
+ <footer>
+    <p>
+      <a href="#">Disclaimer</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms</a> <br>
+      &copy; 2025 Calm Consultancy. All rights reserved.
+    </p>
+
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+
+</body>
+</html>
